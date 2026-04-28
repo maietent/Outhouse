@@ -4,6 +4,10 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+  </Folder>
   <Project Path="Outhouse-BE/Outhouse-BE.vcxproj" Id="f04becec-c4c7-423a-8d3b-7d77f4afb16f" />
   <Project Path="Outhouse-FE/Outhouse-FE.csproj" />
 </Solution>

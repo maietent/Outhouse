@@ -1,2 +1,2 @@
-# professional-dumper
-a gui dumping tool based on process-dump
+# Outhouse
+a toy process dumping tool
