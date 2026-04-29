@@ -12,11 +12,7 @@
 
 #include <string>
 
-struct DumpOptions
-{
-    bool handle_hijack;
-    // bool kernel_mode;
-};
+#include "dumper.h"
 
 extern "C" OUTHOUSEBE_API int DumpProcess(
     unsigned int pid,

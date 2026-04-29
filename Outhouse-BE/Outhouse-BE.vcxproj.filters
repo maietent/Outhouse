@@ -10,6 +10,9 @@
     <ClCompile Include="Outhouse-BE.cpp">
       <Filter>Entry</Filter>
     </ClCompile>
+    <ClCompile Include="dumper.cpp">
+      <Filter>Dumping</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Entry">
@@ -18,6 +21,9 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{187d0bed-9191-415f-816e-ac4dbdd0aeb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dumping">
+      <UniqueIdentifier>{81a830f1-680d-4e03-9d3f-d858a852e279}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Outhouse-BE.h">
@@ -25,6 +31,9 @@
     </ClInclude>
     <ClInclude Include="utils.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="dumper.h">
+      <Filter>Dumping</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
