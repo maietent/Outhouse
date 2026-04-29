@@ -11,4 +11,8 @@
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Outhouse-BE\Outhouse-BE.vcxproj" />
+  </ItemGroup>
+
 </Project>

@@ -18,16 +18,18 @@ int dmpproc(unsigned int pid, const char* outputPath, DumpOptions* options)
     /* open process */
 	if (!dumper.GetProcess(pid))
     {
-        Log("Failed to get process handle for PID: {}. GetLastError:", pid, GetLastError());
+        Log("Failed to get process handle for PID: {}. GetLastError: {}", pid, GetLastError());
         return -1;
     }
+	Log("Successfully opened process handle for PID: {}", pid);
 
 	/* get snapshot */
 	if (!dumper.GetSnapshot(pid))
     {
-        Log("Failed to get snapshot for PID: {}. GetLastError:", pid, GetLastError());
+        Log("Failed to get snapshot for PID: {}. GetLastError: {}", pid, GetLastError());
         return -1;
     }
+	Log("Successfully obtained snapshot for PID: {}", pid);
 
     return 0;
 }
@@ -43,10 +45,18 @@ bool Dumper::GetProcess(unsigned int pid)
     if (!pid)
         return false;
 
-	hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
-    if (hProcess == INVALID_HANDLE_VALUE)
+	hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_VM_WRITE | PROCESS_VM_OPERATION, FALSE, pid);
+    if (hProcess == NULL)
     {
-        return false;
+        hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, false, pid);
+        if (hProcess != NULL)
+        {
+            Log("Process opened with limited access");
+        }
+        else
+        {
+            return false;
+		}
 	}
 
     return true;
