@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Outhouse_FE"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="Outhouse" Height="450" Width="800" Background="Gray">
+    <Grid Margin="0,0,0,7">
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="390,10,10,170" SelectionChanged="ListBox_SelectionChanged" Background="DarkGray" x:Name="ProcessListBox"/>
+        <Label Content="Outhouse" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="41" Width="187" FontWeight="Bold" FontFamily="Calibri" FontSize="26" Foreground="White"/>
+        <Button Content="Dump" HorizontalAlignment="Left" Margin="14,361,0,0" VerticalAlignment="Top" Height="38" Width="90" Click="DumpButton_Click"/>
+        <CheckBox x:Name="HandleHijackCheckBox" Content="Handle Hijack (may interfere with system processes)" HorizontalAlignment="Left" Margin="14,46,0,0" VerticalAlignment="Top" Width="301" Foreground="White"/>
+        <TextBox x:Name="OutputPathTextBox" HorizontalAlignment="Left" Margin="125,371,0,0" TextWrapping="Wrap" Text="Output Folder" VerticalAlignment="Top" Width="227"/>
+        <Button Content="..." HorizontalAlignment="Left" Margin="357,370,0,0" VerticalAlignment="Top" Width="25" Click="BrowseButton_Click"/>
     </Grid>
 </Window>

@@ -1,22 +1,28 @@
 // Outhouse-BE.cpp : Defines the exported functions for the DLL.
 //
 
-#include "pch.h"
-#include "framework.h"
+#include <windows.h>
 #include "Outhouse-BE.h"
 
+#include "utils.h"
 
-// This is an example of an exported variable
-OUTHOUSEBE_API int nOuthouseBE=0;
-
-// This is an example of an exported function.
-OUTHOUSEBE_API int fnOuthouseBE(void)
+int dmpproc(unsigned int pid, const char* outputPath, DumpOptions* options)
 {
+    Logger::init_logging(true, false);
+
+    if (!options)
+        return -1;
+
+	std::string outputPathStr(outputPath);
+    Log("Params: {} {} {}", pid, outputPath, options->handle_hijack);
     return 0;
 }
 
-// This is the constructor of a class that has been exported.
-COuthouseBE::COuthouseBE()
+extern "C" OUTHOUSEBE_API int DumpProcess(
+    unsigned int pid,
+    const char* outputPath,
+    DumpOptions* options
+)
 {
-    return;
+    return dmpproc(pid, outputPath, options);
 }

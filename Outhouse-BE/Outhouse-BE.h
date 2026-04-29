@@ -10,13 +10,16 @@
 #define OUTHOUSEBE_API __declspec(dllimport)
 #endif
 
-// This class is exported from the dll
-class OUTHOUSEBE_API COuthouseBE {
-public:
-	COuthouseBE(void);
-	// TODO: add your methods here.
+#include <string>
+
+struct DumpOptions
+{
+    bool handle_hijack;
+    // bool kernel_mode;
 };
 
-extern OUTHOUSEBE_API int nOuthouseBE;
-
-OUTHOUSEBE_API int fnOuthouseBE(void);
+extern "C" OUTHOUSEBE_API int DumpProcess(
+    unsigned int pid,
+    const char* outputPath,
+    DumpOptions* options
+);
